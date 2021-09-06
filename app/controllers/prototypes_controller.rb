@@ -29,14 +29,14 @@ class PrototypesController < ApplicationController
   def edit
      @prototype = Prototype.find(params[:id])
      unless @prototype.user_id == current_user.id
-      redirect_to action: :index
+      redirect_to action: :show
      end
      
   end
   def update
      @prototype = Prototype.find(params[:id])
     if @prototype.update(prototype_params)
-      redirect_to prototypes_path(@prototype)
+      redirect_to prototype_path(@prototype)
     else
       render :edit
     end
@@ -56,5 +56,6 @@ class PrototypesController < ApplicationController
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image, :user).merge(user_id: current_user.id)
   end
+
   
 end
