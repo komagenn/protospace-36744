@@ -5,6 +5,7 @@ class PrototypesController < ApplicationController
   def index
     @prototypes = Prototype.all
     @comments = Comment.all
+   
   end
 
   def new
@@ -26,6 +27,7 @@ class PrototypesController < ApplicationController
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)
   end
+
   def edit
      @prototype = Prototype.find(params[:id])
      unless @prototype.user_id == current_user.id

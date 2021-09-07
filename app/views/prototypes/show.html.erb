@@ -12,8 +12,8 @@
           <%= link_to "削除する", prototype_path(@prototype.id), method: :delete, class: :prototype__btn %>
         </div>
       <% end %>
-         <%= link_to "by #{@prototype.user.name}", user_path(@prototype.id), method: :get, class: :prototype__user %>
-    
+         <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user), method: :get, class: :prototype__user %>
+      
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
         <%= image_tag @prototype.image %>
